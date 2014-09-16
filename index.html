@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+		<title>Sam Hatfield dot co dot uk</title>
+
+		<!-- Bootstrap -->
+		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="lib/d3/d3.min.js" type="text/javascript" charset="utf-8"></script>
+		<link href="custom.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row"><div class="col-md-12"><div class="header">
+						<h3 class="text-muted">Sam Hatfield</h3>
+					</div>
+					<div class="jumbotron row">
+						<div class="col-md-5">
+							<img src="images/meResized.JPG" class="img-rounded img-responsive">
+						</div>
+						<div class="col-md-7"><h1 id="hello">Hello, world!</h1>
+							<script src="hello.js"></script>
+							<p class="lead">I'm Sam, a programmer living in Bristol.</p>
+							<dl class="dl-horizontal">
+								<dt>Email</dt>
+								<dd>sh0799@my.bristol.ac.uk</dd>
+								<dd>samhatfield@live.co.uk</dd>
+								<dt>Linkedin</dt>
+								<dd><a href="https://www.linkedin.com/in/hatfieldsam">linkedin.com/in/hatfieldsam</a></dd>
+								<dt>Flickr</dt>
+								<dd><a href="https://www.flickr.com/photos/sam-hatfield/">flickr.com/photos/sam-hatfield</a></dd>
+							</dl>
+							<div class="btn-group" style="float:right">
+								<a href="#projects" class="btn btn-default">Projects</a>
+								<a href="#doodles" class="btn btn-default">Doodles</a>
+								<a href="#cv" class="btn btn-default">CV</a>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-body bg-warning">
+							I'm still making this website, so please excuse the mess.
+						</div>
+					</div>
+					<h2>Projects <a id="projects">#</a> <small>Here are some projects that I've worked on</small></h2>
+					<img src="images/balloon.JPG" class="img-rounded img-responsive center-block">
+					<h3>High-altitude balloon <small>Reached 32 km</small><a href="balloon"  class="btn btn-sm btn-default pull-right">Read more...</a></h3>
+					<p>From November 2013 to June 2014, I helped to develop a high-altitude balloon launch.</p>
+					<br>
+					<img src="images/knot1.png" class="img-rounded img-responsive center-block">
+					<br>
+					<img src="images/knot2.png" class="img-rounded img-responsive center-block">
+					<h3>Undergraduate project <small>Knotting in nanochannel-confined polymers</small><a href="polymer" class="btn btn-sm btn-default pull-right">Read more...</a></h3>
+					<p>For the final year project of my undergraduate degree, I developed a numerical model of a 
+					polymer confined in a nanochannel. This was written in <samp>C</samp>.</p>
+
+					<hr>
+
+					<h2>Doodles <a id="doodles">#</a> <small>Small programs I've written in Javascript</small></h2>
+					<script src="lorenz/lorenz.js" type="text/javascript" charset="utf-8"></script>
+					<h3>Lorenz attractor</h3>
+					<hr>
+
+					<h2>CV <a id="cv">#</a> <small>Curriculum Vitae</small></h2>
+					<h3>Experience</h3>
+					<h4>Computer Programmer, Microcosm <small>August 2014 - Present</small></h4>
+					<ul>
+						<li>Helped to develop SmartSign, a two-factor authentication system for web developers, with emphasis on the front-end.</li>
+						<li>Ported the SmartSign API from <samp>PHP</samp> to <samp>ASP.NET</samp> and Ruby on Rails.</li>
+					</ul>
+					<h4>Surrey Space Centre, University of Surrey <small>Summer 2013</small></h4>
+					<ul>
+						<li>Designed and built a Cherenkov radiation detector.</li>
+						<li>Provided valuable experience of working in a research environment, e.g. how to acquire materials, liaise with senior members of staff.</li>
+						<li>Developed <samp>MATLAB</samp> scripts for processing data from geostationary satellites on high energy electrons in the radiation belts.</li>
+					</ul>
+					<h4>Earth Sciences Department, University of Bristol <small>Summer 2012</small></h4>
+					<ul>
+						<li>Studied exploration geophysics, specialising in gravity surveys.</li>
+						<li>Analysed data from geophysical surveys of Lamb Leer cave, Somerset, using <samp>MATLAB</samp></li>
+						<li>Gained hands-on experience with data collection in the field, as part of a team.</li>
+					</ul>
+					<h3>Education</h3>
+					<h4>MSci Physics, University of Bristol <small>2010 - 2014</small></h4>
+					<ul>
+						<li><strong>Grades:</strong> Awarded first-class honours with an average mark of 78%.</li>
+						<li><strong>Final year project:</strong> "Knots in geometrically-confined polymers: nanochannels and other geometries". Developed
+						polymer model in <samp>C</samp>. Involved extensive numerical modelling and use of the university Linux supercluster.</li>
+						<li><strong>Laboratory:</strong> Extensive laboratory experience, including atomic resolution imaging of graphite through 
+						scanning tunneling microscopy.</li>
+						<li><strong>Group work:</strong> Led group of 7 to write 10,000 word review article on nuclear power.</li>
+						<li><strong>Awards:</strong> On the highly-commended list of applicants to the Undergraduate Awards in 2014, for my final year project. 
+						Received commendations for first year exam results and final year project, the first prize award in the 
+						final year poster session for external moderators and the Bristol PLuS Award for employability skills.</li>
+					</ul>
+					<h4>Therfield School <small>2003 - 2010</small></h4>
+					<ul>
+						<li>A Levels: Maths (A*), Physics (A*), Chemistry (A)</li>
+						<li>Competed Open University 10cp short course: "Planets: An Introduction"</li>
+					</ul>
+					<h3>Technologies familiar with <small>On a scale of zero to guru</small></h3>
+					<div class="col-md-6">
+						<h4>Programming languages</h4>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+								<samp>C</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+								<samp>MATLAB</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+								<samp>Javascript</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+								<samp>PHP</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+								<samp>C#</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+								<samp>Processing</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+								<samp>Python</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
+								<samp>Ruby</samp>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-6">
+						<h4>Operating systems</h4>
+						<div class="progress">
+							<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+								<samp>OS X</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+								<samp>Windows</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+								<samp>Linux</samp>
+							</div>
+						</div>
+
+						<h4>Web</h4>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+								<samp>HTML/CSS</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+								<samp>ASP.NET</samp>
+							</div>
+						</div>
+
+						<h4>Other</h4>
+						<div class="progress">
+							<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+								<samp>LaTeX</samp>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+								<samp>MySQL</samp>
+							</div>
+						</div>					
+					</div>
+
+					<br>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-46489640-1', 'samhatfield.co.uk');
+		ga('send', 'pageview');
+
+	</script>
+</html>

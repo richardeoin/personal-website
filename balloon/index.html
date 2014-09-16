@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" contents="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>High altitude balloon launch</title>
+		<!-- Bootstrap -->
+		<link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+		<link href="../custom.css" rel="stylesheet">
+		<script src="../lib/d3/d3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../lib/nvd3/nv.d3.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../lib/nvd3/nv.d3.css" type="text/css" media="screen" charset="utf-8">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<style>
+			#map-canvas {
+				height: 400px;
+			}
+
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+			.axis text {
+				font-size: 11px;
+			}
+			.lineplot {
+				fill: none;
+				stroke: steelblue;
+				stroke-width: 1.5px;
+			}
+			circle {
+				fill: steelblue;
+			}
+			svg {
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="header">
+						<a href="../"><h3 class="text-muted">Sam Hatfield</h3></a>
+					</div>					<hr>
+					<h1>High-altitude balloon launch</h1>
+					<img src="../images/balloon.png" class="img-rounded img-responsive center-block">
+					<br>
+					<p>The main project of the Bristol branch of UKSEDS (UK Students for the Exploration and Development of Space) this year was to launch a high-altitude balloon and capture video and still footage from well into the stratosphere. The balloon was successfully launched on the 15th June from an airfield near Tewkesbury, north of Cheltenham, and landed near Glastonbury. See the map below for the full trajectory.</p>
+					<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+					<script>
+						function initialize() {
+							var bath = new google.maps.LatLng(51.375801,-2.3599039);
+							var mapOptions = {
+								zoom: 10,
+								center: bath 
+							}
+
+							var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+							var ctaLayer = new google.maps.KmlLayer({
+								url: 'http://www.samhatfield.co.uk/balloon/balloonpath.kml'
+							});
+							ctaLayer.setMap(map);
+						}
+
+						google.maps.event.addDomListener(window, 'load', initialize);
+
+					</script>
+					<div id="map-canvas"></div>
+					<h3>The payload</h3>
+					<p>The main payload carried by the balloon contained two flight computers. The first was an LPCXpresso microcontroller fitted with an ARM processor. This interfaced with the environmental sensors (barometers, thermometers et cetera) and the GPS receiver and relayed the data via radio. We then received this data using a portable radio receiver and uploaded it to the HABHUB server, where it could be corroborated with other tracking data and plotted on a map. See Richard Meadows' <a href="https://github.com/richardeoin">github page</a> for the lpc source code. The second computer was an mbed, which also received data from the GPS module and sent it via a GSM modem to an ordinary mobile phone, telling us where the balloon was. Unfortunately, this computer failed for some reason, but it wasn't essential.</p> 
+					<p>The balloon was also equipped with two cameras; a GoPro Hero 3 mounted to the bottom capturing 1080p footage at 30 fps and an ordinary Canon point-and-shoot programmed to take photos every 15 seconds. For the latter, we opted for the <a href="http://www.chdk.wikia.com">Canon Hack Development Kit (CHDK)</a>, an open source custom firmware for Canon cameras.</p>
+
+				<h3>Data</h3>
+				<p>Unfortunately, much of the data taken by the payload was lost. However, we were able to receive sensible values for the atmospheric temperature and the GPS coordinates. Here is the altitude of the balloon as a function of time:</p>
+				<script src="plot1.js" type="text/javascript" charset="utf-8"></script>
+
+				</div>
+			</div>
+		</div>
+<!--
+<p>We also recorded the atmospheric temperature as a function of altitude, also known as the <em>lapse rate</em>:</p>
+<script type="text/javascript" charset="utf-8">
+	// SVG window size
+var w = 600;
+var h = 300;
+
+// Scales and axes
+var xScale;
+var yScale;
+var xAxis;
+var yAxis;
+
+// Padding to keep everything nicely within the SVG canvas
+var xPadding = 60
+var yPadding = 37
+
+// Create SVG canvas
+var svg = d3.select("#content")
+.insert("svg", "#aftergraph")
+.attr("width", w)
+.attr("height", h)
+
+// Import data
+var rawData = [];
+d3.text("exttemp.csv", function(text) {
+		rawData = d3.csv.parseRows(text);
+		for (var i = 0; i < rawData.length; i++) {
+		rawData[i][1] = Number(rawData[i][1])
+		rawData[i][2] = Number(rawData[i][2])
+		}
+
+
+		firstSetupTheRanges2();
+		});
+
+// Now setup the ranges
+function firstSetupTheRanges2() {
+	// Launch and landing times
+
+	xScale = d3.scale.linear()
+		.domain([d3.min(rawData, function(d) { return d[2] }), d3.max(rawData, function(d) { return d[2] })])
+		.range([xPadding, w-xPadding])
+
+		yScale = d3.scale.linear()
+		.domain([d3.max(rawData, function(d) { return d[1] }), d3.min(rawData, function(d) { return d[1] })])
+		.range([yPadding, h-yPadding]);
+
+	xAxis = d3.svg.axis().scale(xScale).orient("bottom")
+		yAxis = d3.svg.axis().scale(yScale).orient("left")
+
+
+		nowDrawTheGraph2();
+}
+
+// Draw the graph
+function nowDrawTheGraph2() {
+	svg.selectAll("circle")
+		.data(rawData)
+		.enter()
+		.append("circle")
+		.attr("cx", function(d) { return xScale(d[2]) })
+		.attr("cy", function(d) { return yScale(d[1]) })
+		.attr("r", function(d) { return 2 })
+
+
+		svg.append("g")
+		.attr("class", "axis")
+		.attr("transform", "translate(0," + (h-yPadding) + ")")
+		.call(xAxis)
+		svg.append("g")
+		.attr("class", "axis")
+		.attr("transform", "translate(" + xPadding + ",0)")
+		.call(yAxis)
+		svg.append("text")
+		.text(function() { return "Temperature (Celsius)" })
+		.attr("x", function() { return w/2 })
+		.attr("y", function() { return h-4})
+		.attr("text-anchor", "middle")
+		svg.append("text")
+		.text(function() { return "Altitude (m)" })
+		.attr("x", function() { return 10 })
+		.attr("y", function() { return h/2 })
+		.attr("text-anchor", "middle")
+		.attr("transform", "rotate(-90," + 10 + "," + h/2 + ")")
+
+}
+</script>
+<h3>The team</h3>
+Here we our next to the recovered payload:
+<div class="imginline">
+	<img src="../../images/ubsedsteam.JPG" />	
+</div>
+<p>The UBSEDS team are, from left to right, Richard Meadows, Jocelino Rodrigues, me, Alastair Blanshard and Shahzaib Muneeb (not pictured).</p>
+<h3>Photos</h3>
+<p>Here are some more images, taken from the still camera (check out our <a href="https://www.flickr.com/photos/125596062@N07/with/14298642638/">flickr account</a> for the complete set of images):</p>
+<div class="imginline">
+	<img src="../../images/balloon3.JPG" />	
+</div>
+<div class="imginline">
+	<img src="../../images/balloon4.JPG" />	
+</div>
+<div class="imginline">
+	<img src="../../images/balloon2.JPG" />	
+</div>
+
+
+
+
+		</div></div>	-->	
+	</body>
+</html>

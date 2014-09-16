@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		<title>KML Layers</title>
+		<style>
+			html, body, #map-canvas {
+			height: 40em;
+			width: 40em;
+			margin-left: auto;
+			margin-right: auto;
+			}
+		</style>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+		<script>
+			function initialize() {
+				var bath = new google.maps.LatLng(51.375801,-2.3599039);
+				var mapOptions = {
+					zoom: 9,
+					center: bath 
+				}
+
+				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+				var ctaLayer = new google.maps.KmlLayer({
+					url: 'http://www.samhatfield.co.uk/projects/balloon/balloonpath.kml'
+				});
+				ctaLayer.setMap(map);
+			}
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+
+		</script>
+	</head>
+	<body>
+		<div id="map-canvas"></div>
+	</body>
+</html>
